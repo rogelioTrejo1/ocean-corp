@@ -1,0 +1,44 @@
+{{#if user}}
+{{!-- TARJETA DE USUARIO REGISTRADO --}}
+<div class="tarjeta-login" id="tarjeta-perfil">
+    <div id="supe-tarje">
+        <div class="img-perfil">
+            <img class="img-fluid" src="{{host}}/{{user.Foto_Perfil}}">
+        </div>
+        <div id="cuenta">
+            <p>{{user.Nombre}} {{user.Apellido_Paterno}} {{user.Apellido_Materno}}</p>
+            <a href="/Cuenta">
+                <small><i class="fas fa-cog"></i><span> Configuración de la cuenta</span></small>
+            </a>
+        </div>
+    </div>
+    <div id="medi-tarje" class="row">
+        <button id="favo" class="col-6" onclick="location.href='/Favoritos'">
+            <i class="fa fa-heart"></i><span> Favoritos</span>
+        </button>
+        <button id="pedi" class="col-6" onclick="location.href='/Pedidos'">
+            <i class="fas fa-truck-moving"></i><span> Pedidos</span>
+        </button>
+    </div>
+    <div id="infe-tarje">
+        <button class="btn-ocean-blanco btn-block">Cerrar sesión</button>
+    </div>
+</div>
+{{else}}
+{{!-- TARJETA PARA INICIO DE SESIÓN --}}
+<div class="tarjeta-login" id="tarjeta-perfil">
+   <form method="POST" action="/Login">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nombre de usuario" name="Username" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Contraseña" name="Password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn-ocean-azul btn-block">Iniciar sesión</button>
+        </div>
+    </form>
+    <hr>
+    <small>¿Nuevo en Ocean? <a class="text-primary" href="{{host}}/Registro">Crea una cuenta</a></small>
+</div>
+{{/if}}

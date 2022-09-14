@@ -1,0 +1,247 @@
+/* CARRUSEL */
+.carusel {
+    padding: 0% 0% 0%;
+    margin-bottom: 30px;
+  }
+  
+  /* .carusel-per-se {
+    height: 500px;
+  } */
+
+/* PRODUCTOS */
+.productos-inicio {
+  text-align: center;
+  margin-top: 125px;
+  margin-bottom: 60px;
+}
+
+.productos-inicio h2 {
+  font-size: 45px;
+}
+
+.producto-icono {
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 80px;
+  color: var(--negro-suave);
+  background-color: #f6f6f6;
+  width: 180px;
+  height: 180px;
+  margin: 40px 25px 30px;
+  border: 2px solid var(--negro-suave);
+  border-radius: 200px;
+  box-shadow: #999 0px 2px 12px 0px;
+  transition: all linear 0.2s;
+}
+
+.producto-icono i {
+  position: absolute;
+}
+
+.producto-icono span {
+  font-size: 28px;
+}
+
+.producto-icono:hover {
+  transform: scale(1.02);
+}
+
+.producto-icono.nar:hover {
+  border: 2px solid var(--naranja);
+  box-shadow: var(--naranja) 0px 2px 12px 0px;
+  transition: all linear 0.1s;
+}
+
+.producto-icono.azu:hover {
+  border: 2px solid var(--azul-bajito);
+  box-shadow: var(--azul-bajito) 0px 2px 12px 0px;
+  transition: all linear 0.1s;
+}
+
+.producto-icono.ama:hover {
+  border: 2px solid var(--amarillo-como-chiflas);
+  box-shadow: var(--amarillo-como-chiflas) 0px 2px 12px 0px;
+  transition: all linear 0.1s;
+}
+
+.producto-icono.ros:hover {
+  border: 2px solid var(--rosa);
+  box-shadow: var(--rosa) 0px 2px 12px 0px;
+  transition: all linear 0.1s;
+}
+
+.producto-icono.ver:hover {
+  border: 2px solid var(--aquamarina);
+  box-shadow: var(--aquamarina) 0px 2px 12px 0px;
+  transition: all linear 0.1s;
+}
+
+.productos-inicio a {
+  color: #4d94ff;
+}
+
+.productos-inicio a:hover {
+  color: #4d94ff;
+}
+
+.ani-icono-producto {
+  animation: ani-icono-producto 1s;
+}
+
+@keyframes ani-icono-producto {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.envia-diseños {
+  position: relative;
+  height: auto;
+  min-height: 200px;
+  margin: 40px 8%;
+  padding: 30px;
+  border: var(--negro-suave) solid 1px;
+  transition: all linear 0.3s;
+
+}
+
+.envia-diseños:after {
+  content : "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(http://www.charlottenewsvt.org/wp-content/uploads/2018/03/books.jpg); 
+  background-size: 100%; 
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  width: 100%;
+  height: 100%;
+  opacity : 0.5;
+  z-index: -1;
+}
+
+.envia-diseños:hover {
+  box-shadow: #999 0px 5px 16px 0px;
+  transform: scale(1.02);
+  transition: all linear 0.4s;
+}
+
+.envia-diseños p {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ENCUÉNTRANOS */
+.encuentranos {
+  height: 100%;
+  background-image: url(/image/utils/printing-press1.jpg);
+  background-attachment: fixed;
+}
+
+.frase-ocean {
+  color: #fff;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.frase-ocean h2 {
+  font-size: 62px;
+  color: #fff;
+}
+
+/* NOSOTROS */
+.nosotros-inicio {
+  padding: 10% 0px 10%;
+}
+
+.nosotros-inicio h2 {
+  font-size: 45px;
+  text-align: center;
+}
+
+.tarjeta-nosotros {
+  color: #f3f3f3;
+  height: auto;
+  min-height: 350px;
+  background-color: var(--azul-rey);
+  margin: 35px 0px 0px;
+  padding: 50px;
+  box-shadow: #404040 0px 4px 16px -2px;
+}
+
+.bolas-nosotros {
+  text-align: right;
+}
+
+.nosotros-icono {
+  color: #f3f3f3;
+  font-size: 38px;
+  background-color: transparent;
+  height: 80px;
+  width: 80px;
+  margin: 8px 40px 8px;
+  border: 2px #f2f2f2 solid;
+  border-radius: 80px;
+  transition: all linear 0.4s;
+}
+
+.nosotros-icono:hover {
+  box-shadow: inset #f2f2f2 0px 0px 16px 0px;
+  transition: all ease 0.5s;
+}
+
+.nosotros-icono:focus {
+  text-decoration: none;
+}
+
+.tarjeta-nosotros p#no {
+  margin-top: 0.8rem;
+}
+
+.unete {
+  color: var(--negro-suave);
+  text-align: center;
+  margin: 0px 0px 85px;
+}
+
+/* COLORCITOS DE LETRA */
+.azu {
+  color: var(--azul-bajito);
+}
+
+.ama {
+  color: var(--amarillo-como-chiflas);
+}
+
+.ros {
+  color: var(--rosa);
+}
+
+.ver {
+  color: var(--aquamarina);
+}
+
+.nar {
+  color: var(--naranja);
+}
+
+/* MEDIA QUERYS (a.k.a. Cuando tienes que tomar las cosas por mano propia) */
+@media (max-width: 767px) {
+  .producto-icono {
+    width: 140px;
+    height: 140px;  
+    margin: 30px 10px 30px;
+  }
+
+  .tarjeta-nosotros {
+    padding: 30px;
+  }
+  .bolas-nosotros {
+    text-align: center;
+  }
+  .nosotros-icono {
+    margin: 0px 8px 25px;
+  }
+}

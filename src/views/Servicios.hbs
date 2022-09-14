@@ -1,0 +1,61 @@
+<section class="servicios">
+    <h2 class="text-center">Impresiones</h2>
+    <input type="hidden" value="{{user.ID_Cliente}}" id="id">
+    <div class="row" id="Cuerpo">
+        <div class="col-12 col-md-7">
+            <iframe class="w-100 h-100 border-0"></iframe> 
+        </div>
+        <div class="col-12 col-md-5">
+            <form id="form-Copias">
+                <div class="impre-rapid">
+                    <button class="btn-imprimir">
+                        <i class="fas fa-print"></i>
+                    </button>
+                    <h4>Imprimir</h4>
+                    Copias: <input type="text" placeholder="0" class="form-sm" required id="Numero-copias">
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control-file file" id="file" hidden>
+                    <label for="file" class="w-100 h-100">Subir tu documento</label>
+                </div>
+                <div class="form-group config-impre">
+                    <select name="color" id="color" class="form-control">
+                        <option value="color" selected>Imprimir a color</option>
+                        <option value="byn">Imprimir a blanco y negro</option>
+                    </select>
+                </div>
+                <div class="form-group config-impre">
+                    <input type="text" placeholder="Imprimir todas las páginas" class="form-control" id="Intervalos">
+                </div>
+                <div class="form-group config-impre">
+                    <select name="cara" id="cara" class="form-control">
+                        <option value="una_cara" selected>Imprimir a una sola cara</option>
+                        <option value="doble_cara">Imprimir a doble cara</option>
+                    </select>
+                </div>
+                <div class="form-group config-impre">
+                    <select name="pag_hoja" id="pag_hoja" class="form-control">
+                        <option value="una_pag" selected>1 página por hoja</option>
+                        <option value="dos_pag">2 páginas por hoja</option>
+                        <option value="cuatro_pag">4 páginas por hoja</option>
+                    </select>
+                </div>
+                <div class="form-group config-impre">
+                    <select name="tamano" id="tamano" class="form-control">
+                        <option value="carta" selected>Imprimir a tamaño carta</option>
+                        <option value="oficio">Imprimir a tamaño oficio</option>
+                        <option value="tabloide">Imprimir a tamaño tabloide</option>
+                    </select>
+                </div>
+                <div class="form-group config-impre">
+                    <select name="papel" id="papel" class="form-control">
+                        <option value="color" selected>Imprimir en papel normal</option>
+                        <option value="byn">Blanco y negro</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="/js/servicios.js"></script>

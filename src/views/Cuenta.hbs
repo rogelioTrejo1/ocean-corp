@@ -1,0 +1,105 @@
+<section class="config-cuenta">
+    <div class="w-25 mx-auto" id="messages"></div>
+    {{!-- Datos del registro principal e inicio de sesión --}}
+    <h3>Configuración de la cuenta</h3>
+    <hr>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            {{!-- Para cambiar la imagen, pero para que no se viera tan solo le puse también el usuario ;) --}}
+            <div class="row cuenta-actual">
+                <div class="col-12 col-md-4 alinea-centro">
+                    <div class="img-perfil" id="imagen-perfil">
+                        <img class="img-fluid" src="{{user.Foto_Perfil}}">
+                    </div>
+                </div>
+                <div class="col-12 col-md-8" id="cuenta-config">
+                    <p>{{user.Nombre}} {{user.Apellido_Paterno}} {{user.Apellido_Materno}}</p>
+                    <div class="cambiar-img">
+                        <form method="POST" action="/fotoPerfil" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="file" name="perfil" id="file" class="form-control-file file" required>
+                                <label for="file">Cambiar imagen de perfil...</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm btn-block">Actualizar foto de perfil</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <form id="form-register">
+                <input type="hidden" id="id" value="{{user.ID_Cliente}}">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tu nombre" value="{{user.Nombre}}" id="Nombre" required>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Tu apellido paterno" value="{{user.Apellido_Paterno}}" id="Paterno" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Tu apellido materno" value="{{user.Apellido_Materno}}" id="Materno" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tu nombre de usuario" value="{{user.Nombre_Usuario}}" id="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Nueva Contraseña" id="Pass1" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirmar nueva contraseña" id="Pass2" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-ocean-claro btn-block">Actualizar datos</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <h3>Datos de envío</h3>
+            <form id="form-Datos">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Calle" id="Calle" required>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Número Interior" id="Num-Int" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Número Exterior" id="Num-Ext" required>
+                    </div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Fraccionamiento" id="Fracciona" required>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="Código Postal" id="Codigo-Postal" required>
+                    </div>
+                </div>
+                <div class="form-row form-group">
+                    <div class="col-4">
+                        <input type="text" class="form-control" placeholder="Teléfono" id="Telefono" required>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" placeholder="Email" id="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="comentario-ubicacion" id="comen-ubi" cols="30" rows="5"
+                        placeholder="Ingresa un comentario para ayudar al repartidor ;)" required></textarea>
+                </div>
+                <div class="form-group row">
+                   <div class="col-md-6">
+                        <button type="button" class="btn-ocean-claro btn-block guardar" id="Guardar">Guardar datos</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn-ocean-claro btn-block actualizar" id="Actualizar">Actualizar datos</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{{!-- JavaScript --}}
+<script src="/js/cuenta.js"></script>

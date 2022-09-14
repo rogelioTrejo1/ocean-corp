@@ -1,0 +1,32 @@
+<div id="tarjeta-carrito" class="tarjeta-carrito carri">
+    <input type="hidden" id="id" value="{{user.ID_Cliente}}">
+    <h5 class="carri">Artículo(s) añadido(s) al carrito</h5>
+    {{#if pedido}}
+    <input type="hidden" id="idPedido" value="{{pedido}}">
+    {{!-- Cada artículo en el carrito --}}
+    <div class="carri-arti carri" id="Articulo"></div>
+
+    {{!-- Pagar --}}
+    <div class="row carri-pagar carri">
+        <div class="col-6 alinea-centro carri">
+            <p class="carri">Subtotal $<b class="carri" id="total-Pagar"></b></p>
+        </div>
+        <div class="col-6 alinea-centro carri">
+            <button class="icono-pagar-carrito carri pagar">
+                <i class="fas fa-cash-register carri pagar"></i>
+                <span class="carri pagar">Pagar</span>
+            </button>
+        </div>
+    </div>
+    {{else}}
+    <div class="carri">
+        <h6 class="azu carri">Crea un nuevo pedido</h6>
+        <div class="alinea-centro carri">
+            <img src="{{host}}/image/utils/paloma.jpg" alt="" class="img-fluid carri">
+        </div>
+    </div>
+    <div class="alinea-centro carri">
+        <button class="btn-ocean-amarillo btn-block w-100 carri pedido">Comenzar a comprar!</button>
+    </div>
+    {{/if}}
+</div>

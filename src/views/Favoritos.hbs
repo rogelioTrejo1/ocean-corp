@@ -1,0 +1,21 @@
+<section class="formato-centro">
+    <h3><i class="fa fa-heart ros"></i> Favoritos <i class="fa fa-heart ros"></i></h3>
+    <input type="hidden" value="{{user.ID_Cliente}}" id="id">
+    {{#if pedido}}
+        <input type="hidden" value="{{pedido}}" id="id-pedido">
+    {{/if}}
+    {{!-- Individual de cada artículo favorito --}}
+    <div id="Favoritos"></div>
+    <div class="favorito" id="Mensaje-No-Favorito">
+        <h1 class="text-center">No tienes productos favoritos</h1>
+        <div class="alinea-centro w-100 favo-nada">
+            {{!-- Tenía la idea de poner un gato con corazones dando vueltas alrededor. Pero la animación me quedó bien gacha; así que busqué alternativas... --}}
+            {{!-- ..., y entonces se me ocurrió poner un pingüino --}}
+            <i class="fa fa-heart" id="coro-coro"></i>
+            <i class="far fa-heart" id="cora-cora"></i>
+            <img id="pinguino" src="image/utils/pinguino-sinf.png" alt="Un pingüino" width="250px">
+        </div>
+        <h4 class="text-center"><a href="/Productos">Ir a productos</a></h4>
+    </div>
+</section>
+<script src="/js/favoritos.js"></script>

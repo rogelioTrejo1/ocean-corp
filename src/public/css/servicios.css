@@ -1,0 +1,95 @@
+.servicios {
+    padding: 2rem 5rem;
+}
+
+.servicios h2 {
+    margin-bottom: 2rem;
+}
+
+.impre-rapid {
+    width: 20rem;
+    margin-bottom: 2.5rem;
+}
+
+.impre-rapid input {
+    display: inline;
+    width: 3rem;
+}
+
+.impre-rapid .btn-imprimir {
+    font-size: 25px;
+    color: #404040;
+    background-color: #e9e9e9;
+    float: left;
+    height: 80px;
+    width: 80px;
+    margin-right: 0.5em;
+    border: 1px #404040 solid;
+    border-radius: 80px;
+}
+
+.impre-rapid .btn-imprimir:hover {
+    background-color: #f0f0f0;
+    animation: ani-imprimir 5s linear infinite;
+    animation-delay: 7s;
+    transition: all linear 0.01s;
+}
+
+@keyframes ani-imprimir {
+    0% {
+        transform: rotate(0deg);
+        color: var(--negro-suave);
+    }
+    12.5% {
+        transform: rotate(45deg);
+        color: var(--azul-rey);
+    }
+    25% {
+        transform: rotate(90deg);
+        color: var(--azul-bajito);
+    }
+
+    37.5% {
+        transform: rotate(135deg);
+        color: var(--aquamarina);
+    }
+
+    50% {
+        transform: rotate(180deg);
+        color: var(--amarillo-como-chiflas);
+    }
+
+    62.5% {
+        transform: rotate(225deg);
+        color: var(--naranja);
+    }
+
+    75% {
+        transform: rotate(270deg);
+        color: var(--rosa);
+    }
+
+    87.5% {
+        transform: rotate(315deg);
+        color: #ae33c3;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        color: #404040;
+    }
+}
+
+.config-impre {
+    width: 25rem;
+}
+
+@media (max-width: 767px) {
+    .servicios {
+        padding: 2rem 2rem;
+    }
+
+    .config-impre {
+        width: 100%;
+    }
+}

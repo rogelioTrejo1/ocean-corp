@@ -1,0 +1,71 @@
+/* CONFIGURACIÓN DE LA CUENTA */
+.config-cuenta {
+    font-size: 14px;
+    padding: 2rem 3.6rem;
+}
+
+@media (max-width: 767px) {
+  .config-cuenta {
+    padding: 2rem 1rem;
+  }
+}
+
+.config-cuenta input {
+    font-size: 15px;
+}
+
+.cuenta-actual {
+  display: inline-flex ;
+  width: 100%;
+  padding: 0 1rem 0.3rem;
+  /* border-bottom: #d2d2d2 1px solid; */
+}
+
+.cuenta-actual #imagen-perfil{
+  display: inline-block;  
+}
+
+.cuenta-actual #cuenta-config {
+  margin-left: -2.8rem;
+  padding: 0 0.8rem;
+}
+
+@media (min-width: 768px) and (max-width: 1999px) {
+  .cuenta-actual #cuenta-config {
+    margin-left: -1.8rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .cuenta-actual #cuenta-config {
+    margin-left: 0rem;
+  }
+}
+
+.cuenta-actual p {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0.4rem 0 0.4rem;
+}
+
+.config-cuenta input[type="file"]{
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.file + label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--azul-bajito);
+  display: inline-block;
+}
+
+.file:focus + label,
+.file + label:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<section class="catalogo">
+    <h2 class="cata">Productos - </h2>
+    <h4 class="cata">Todos nuestros productos</h4>
+    <br><br>
+    <div class="row">
+        <div class="col-12 col-md-3 alinea-centro form-group">
+            <input type="search" placeholder="Buscar por Nombre" class="form-control" id="Buscar-Nom">
+            <div class="buscar px-2">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="col-12 col-md-3 form-group">
+            <select id="categoria" class="form-control"></select>
+        </div>
+        <div class="col-12 col-md-3 form-group">
+            <select name="coso" id="ordenar" class="form-control">
+                <option value="order1">Nombre: A - Z</option>
+                <option value="order2">Nombre: Z - A</option>
+                <option value="order3">Precio: Maximo - Minimo</option>
+                <option value="order4">Precio: Minimo - Maximo</option>
+                <option value="order5">Categoria: A - Z</option>
+                <option value="order6">Categoria: Z - A</option>
+            </select>
+        </div>
+        <div class="col-12 col-md-3 text-right">
+            <div id="Num-Products"></div>
+        </div>
+    </div>
+    <div id="mensaje" class="mx-auto w-50"></div>
+    <div class="row productos" id="Productos"></div>
+    <div class="btn-tope alinea-centro d-none" id="btn-tope">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+</section>
+{{!-- JavaScript --}}
+<script src="/js/productos.js"></script>

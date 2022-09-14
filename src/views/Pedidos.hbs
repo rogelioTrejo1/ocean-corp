@@ -1,0 +1,22 @@
+<section class="container">
+    <h3 class="text-center my-4"><i class="fa fa-truck-moving ama"></i> Pedidos <i class="fa fa-truck-moving ama"></i></h3>
+    <input type="hidden" value="{{user.ID_Cliente}}" id="id">
+    <div class="col-12 mx-auto">
+        <table class="table table-responsive mb-5" id="tabla-Pedidos">
+            <thead>
+                <tr>
+                    <th scope="col">Numero de pedido</th>
+                    <th scope="col">Fecha realizado</th>
+                    <th scope="col">Fecha entregado</th>
+                    <th scope="col">Domicilio</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Total</th>
+                 </tr>
+            </thead>
+            <tbody id="Pedidos"></tbody>
+        </table>
+        <div id="Mensaje" class="w-75 mx-auto mb-5"></div>
+        <br><br><br><br>
+    </div>
+</section>
+<script src="{{host}}/js/pedidos.js"></script>

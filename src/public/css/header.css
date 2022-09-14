@@ -1,0 +1,454 @@
+/* CABECERA */
+header {
+  /* background-color: var(--azul-rey); */
+  background: var(--azul-rey); /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    var(--azul-bajito),
+    var(--azul-rey)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    var(--azul-bajito),
+    var(--azul-rey)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  box-shadow: var(--negro-suave) 0px 2px 6px -2px;
+}
+
+.logo {
+  width: auto;
+  max-width: 170px;
+  /* margin: 5px 0px 5px 5%; */
+}
+
+nav ul {
+  text-align: right;
+  width: 100%;
+  margin: 0px;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0px 0px 0px 8%;
+  font-size: 22px;
+  color: #fff;
+}
+
+nav ul li a {
+  color: #fff;
+  padding: 0 0 0.2rem;
+  /* border-bottom: transparent 1px solid; */
+  transition: all 0.2s;
+}
+
+nav ul li a:hover {
+  transition: all linear 0.2s;
+  text-decoration: none;
+}
+
+nav ul li.azu a:hover {
+  color: var(--azul-bajito);
+  border-bottom: var(--azul-bajito) 1px solid;
+}
+
+nav ul li.mari a:hover {
+  color: var(--amarillo-como-chiflas);
+  border-bottom: var(--amarillo-como-chiflas) 1px solid;
+}
+
+nav ul li.ojo a:hover {
+  color: var(--rosa);
+  border-bottom: var(--rosa) 1px solid;
+}
+
+.nav-perfil {
+  position: relative;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-perfil {
+  background-color: white;
+  width: 80px;
+  height: 80px;
+  border: #fff solid 2px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.img-perfil img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.carrito {
+  font-size: 26px;
+  color: var(--amarillo-como-chiflas);
+  margin: 28px 0px 0px 10px;
+}
+
+.carrito:hover {
+  animation: ani-carrito 1s;
+  /* animation: ee-carrito 10s 5s; */
+}
+
+@keyframes ani-carrito {
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.anvurgesa {
+  display: none;
+}
+
+.icon {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.ani-anvurgesa {
+  animation: ani-anvurgesa 0.6s ease-out;
+}
+
+@keyframes ani-anvurgesa {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*MEDIA QUERYS */
+@media (max-width: 767px) {
+  nav ul li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  .logo {
+    max-width: 120px;
+  }
+
+  #navbar {
+    display: none;
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  nav ul {
+    text-align: center;
+  }
+
+  nav ul li {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin: 0 0 1.2rem;
+  }
+
+  #navPerfil {
+    display: inline-flex;
+  }
+
+  .nav-perfil {
+    display: none;
+    margin-bottom: 0.6rem;
+  }
+
+  .anvurgesa {
+    display: inline-flex;
+  }
+
+  .icon {
+    display: none;
+    text-align: center;
+  }
+
+  #navPerfil {
+    display: none;
+  }
+}
+
+/* TARJETA LOGIN */
+.tarjeta-login {
+  display: none;
+  color: #404040;
+  position: absolute;
+  top: 5.7rem;
+  right: 2rem;
+  z-index: 100;
+  background-color: #fff;
+  width: 26rem;
+  height: 14em;
+  /* opacity: 0; */
+  padding: 1rem;
+  border: var(--negro-suave) linear 1px;
+  border-radius: 5px;
+  box-shadow: #808080 0px 1px 3px 0px;
+}
+
+.tarjeta-login input {
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-login hr {
+  margin: 1rem 0 0.8rem;
+}
+
+.tarjeta-login a {
+  color: #404040;
+  text-decoration: none;
+}
+
+@media (max-width: 575px) {
+  .tarjeta-login {
+    right: 0.5rem;
+    width: 96%;
+  }
+}
+
+/* TARJETA USUARIO */
+#supe-tarje {
+  display: inline-flex;
+  width: 100%;
+  padding: 0.1rem 1rem 0.4rem;
+  /* border-bottom: #d2d2d2 1px solid; */
+}
+
+@media (max-width: 575px) {
+  #supe-tarje {
+    padding: 0.1rem 0.1rem 0.4rem;
+  }
+}
+
+#supe-tarje #cuenta {
+  text-align: left;
+  padding: 0 0.5rem;
+}
+
+#supe-tarje p {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0.4rem 0 0.4rem;
+}
+
+.img-perfil-tarje {
+  width: 70px;
+  height: 70px;
+  border: #404040 solid 1px;
+  border-radius: 50px;
+}
+
+#supe-tarje a:hover {
+  color: var(--naranja);
+  text-decoration: none;
+}
+
+#medi-tarje {
+  /* border-bottom: #d2d2d2 1px solid; */
+  height: 50px;
+}
+
+#medi-tarje button {
+  text-align: center;
+  text-decoration: none;
+  color: #202020;
+  font-size: 15px;
+  letter-spacing: 3px;
+  background-color: #fff;
+  border: none;
+  width: 100%;
+  height: 100%;
+  border: #d2d2d2 1px solid;
+  transition: all 0.2s;
+}
+
+#medi-tarje button#favo:hover {
+  color: var(--rosa);
+  font-weight: 600;
+  letter-spacing: 4px;
+  /* background-color: #f8f8f8; */
+  transition: all 0.2s;
+}
+
+#medi-tarje button#pedi:hover {
+  color: var(--amarillo-como-chiflas);
+  font-weight: 600;
+  letter-spacing: 4px;
+  /* background-color: #f8f8f8; */
+  transition: all 0.2s;
+}
+
+#infe-tarje {
+  text-align: center;
+  color: #808080;
+  font-size: 14px;
+  padding: 0.8rem 0.8rem;
+}
+
+/* TARJETA CARRItO */
+.tarjeta-carrito {
+  display: none;
+  color: #404040;
+  position: absolute;
+  top: 5.7rem;
+  right: 2rem;
+  z-index: 100;
+  background-color: #fff;
+  width: 26rem;
+  min-height: 22rem;
+  height: auto;
+  max-height: 36rem;
+  /* opacity: 0; */
+  padding: 1rem;
+  border: var(--negro-suave) linear 1px;
+  border-radius: 5px;
+  box-shadow: #808080 0px 1px 3px 0px;
+}
+
+@media (max-width: 575px) {
+  .tarjeta-carrito {
+    right: 0.5rem;
+    width: 96%;
+  }
+}
+
+/* Para hacer aparecer cosas */
+.on {
+  display: block;
+}
+
+/* Para cuando no existen artículos en el carrito */
+.vacio {
+}
+
+/* Articulos añadidos */
+.carri-arti {
+  font-size: 15px;
+  text-align: left;
+  width: 100%;
+  min-height: 12rem;
+  height: auto;
+  max-height: 24rem;
+  overflow: auto;
+}
+
+.articulo {
+  margin: 2rem 0;
+}
+
+.arti-img {
+  float: left;
+  width: 6rem;
+  height: 6.5rem;
+  margin: 0 1.4rem 0 1rem;
+  border: #404040 1px solid;
+}
+
+.arti-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carri-arti p {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 2px;
+}
+
+.carri-arti i {
+  font-size: 18px;
+  color: var(--azul-bajito);
+}
+
+.carri-arti button {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+/* SCROLLBAR */
+/* width */
+.carri-arti::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.carri-arti::-webkit-scrollbar-track {
+  background: #d2d2d2;
+  border-radius: 1px;
+}
+
+/* Handle */
+.carri-arti::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.carri-arti::-webkit-scrollbar-thumb:hover {
+  /* box-shadow: #404040 0px 0px 8px 2px; */
+  border-radius: 50px;
+  /* animation: ani-scroll 5s; */
+}
+
+.carri-arti b {
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-left: 25px;
+}
+
+/* Pagar */
+.carri-pagar {
+  height: 4rem;
+  background-color: var(--amarillo-como-chiflas);
+  box-shadow: #404040 0px 1px 6px -2px;
+}
+
+.carri-pagar p {
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.carri-pagar b {
+  font-size: 22px;
+}
+
+.icono-pagar-carrito {
+  position: relative;
+  left: 2.5rem;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: transparent;
+  /* margin-right: 0.2rem; */
+  padding: 1rem 0.6rem;
+  border: 1px transparent solid;
+}
+
+.icono-pagar-carrito:hover {
+  border: 1px #404040 solid;
+  cursor: default;
+}
+
+/* Vaciar carrito */
+.tarjeta-carrito small {
+  position: relative;
+  top: 10px;
+}
+
+.tarjeta-carrito small:hover {
+  cursor: pointer;
+  color: var(--naranja);
+}

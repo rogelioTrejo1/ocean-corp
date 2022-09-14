@@ -1,0 +1,83 @@
+<div class="vista-producto">
+    <div class="mx-auto w-50" id="Messages"></div>
+    <div class="d-flex justify-content-center">
+        <input type="hidden" value="{{user.ID_Cliente}}" id="id">
+        <input type="hidden" id="id-Pedido" value="{{pedido}}">
+        <div class="row modal-body">
+            <div class="col-12 col-xl-7">
+                <div class="img-producto-detalle">
+                    <img src="{{body.Imagen}}" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-xl-5 detalles-producto" id="detalles-producto">
+                <h4>{{body.Producto}}</h4>
+                <p>{{body.Descriptcion}}</p>
+                <input type="hidden" value="{{body.ID_Producto}}" id="id-Producto">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        {{!-- Poner a la etiqueta la clase 'azu' si está disponible o 'ros' si está agotado --}}
+                        <b class="azu">Disponibilidad</b>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        {{!-- Poner al input 'required' si el artículo está disponible y 'disabled' si está agotado --}}
+                        {{#if user}}
+                            Cantidad: <input type="number" placeholder="0" class="form-sm" id="Cantidad">
+                        {{/if}}
+                    </div>
+                </div>
+                <h2>$ {{body.Precio}}</h2>
+                {{#if user}}
+                    <button class="btn-ocean-amarillo">Añadir al carrito</button>
+                {{/if}}
+                <div class="icono-productos">
+                    <i class="fas fa-share-alt icono-producto" id="icono-compartir"></i>
+                    {{#if user}}
+                    <i class="far fa-heart icono-producto" id="favoritos"></i>
+                    {{/if}}
+                    
+                    {{!-- Para compartir en redes sociales.  --}}
+                    {{!-- De momento no funciona porque lo tenemos en localhost. --}}
+                    <div class="compartir" id="compartir">
+                        <a
+                            href="https://www.facebook.com/sharer/sharer.php?u={{host}}/Productos/{{body.ID_Producto}}" target="_blank">
+                            <div class="icono-compartir fondo-azu-rey" id="y">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                        </a>
+                        <a
+                            href="https://twitter.com/intent/tweet?text=Checa este producto de Ocean, estoy seguro de que te encantará: &url={{host}}/Productos/{{body.ID_Producto}}&hashtags=ImprentaOcean" target="_blank">
+                            <div class="icono-compartir fondo-azu" id="a">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                        </a>
+                        <a
+                            href="https://api.whatsapp.com/send?text=Checa este producto de Ocean, estoy seguro de que te encantará: {{host}}/Productos/{{body.ID_Producto}}" target="_blank">
+                            <div class="icono-compartir fondo-aqu" id="q">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                        </a>
+                        {{!-- <a href="">
+                            <div class="icono-compartir fondo-ama" id="m">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a> --}}
+                        {{!-- <a href="http://pinterest.com/pin/create/link/?url={{{body.Imagen}}}"> --}}
+                        <a href="http://pinterest.com/pin/create/button/?url={{host}}/Productos/{{{body.ID_Producto}}}&media={{{body.Imagen}}}&description={{{body.Producto}}}"
+                            class="pin-it-button" count-layout="horizontal" target="_blank">
+                            <div class="icono-compartir fondo-ros" id="r">
+                                <i class="fab fa-pinterest-p"></i>
+                            </div>
+                        </a>
+                        <a href="mailto:?subject=Checa este producto de Ocean&amp;body=Estoy seguro de que te encantará: {{{url}}}/Productos/{{{body.ID_Producto}}}">
+                            <div class="icono-compartir fondo-nar" id="r">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/producto.js"></script>

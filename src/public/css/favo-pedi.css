@@ -1,0 +1,227 @@
+/* ¡¡¡!!! El siguiente CSS se realizó de la forma más rápida posible (pero siempre con cariño). 
+Favor de revisar en busca de redundancias y estilos innecesarios. */
+
+/* FAVORITOS Y PEDIDOS */
+
+/* Formato centro */
+.formato-centro {
+  padding: 2rem 4rem 9rem;
+}
+
+@media (max-width: 767px) {
+  .formato-centro {
+    padding: 2rem 1rem 9rem;
+  }
+}
+
+.formato-centro h3 {
+  text-align: center;
+}
+
+.formato-centro table {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 2rem;
+}
+
+.formato-centro .favorito {
+  margin: 4rem 0 0;
+}
+
+.formato-centro h5 {
+  position: relative;
+  left: -15%;
+  text-align: center;
+}
+
+.img-fav {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid #808080;
+}
+
+.img-fav img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formato-centro input[type="text"] {
+  text-align: center;
+}
+
+.formato-centro input[type="submit"] {
+  margin: 0px;
+}
+
+.formato-centro i.fa.fa-heart.ros:hover {
+  transform: scale(1.2);
+  animation: ee-corazon 0.8s linear infinite 7s;
+}
+
+@keyframes ee-corazon {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+
+.container i.fa.fa-truck-moving.ama:hover {
+  transform: translate(10px);
+  animation: ee-camion 12s linear infinite 7s;
+}
+
+@keyframes ee-camion {
+  0% {
+    transform: translate(10px);
+  }
+  25% {
+    transform: translate(1200px);
+  }
+  50% {
+    
+    transform: translate(-1200px, -1200px);
+  }
+  75% {
+    
+    transform: translate(-1200px, 0px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+
+/* Media Querys */
+@media (max-width: 991px) {
+  .formato-centro {
+    padding: 2rem 2rem 6rem;
+  }
+
+  .formato-centro .favorito {
+    margin: 4rem 0 0;
+  }
+
+  .formato-centro h5 {
+    position: relative;
+    left: 0%;
+    text-align: center;
+  }
+
+  .img-fav {
+    width: 7rem;
+    height: 8rem;
+    margin-bottom: 25px;
+    border: 1px solid #808080;
+  }
+
+  .fav-desc {
+    margin-bottom: 25px;
+  }
+
+  input[type="text"] {
+    text-align: center;
+  }
+
+  input[type="submit"] {
+    margin: 0px;
+  }
+
+  .fav-ana-carri {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 546px) {
+  .fav-ana-carri {
+    padding: 0 6rem;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .fav-ana-carri {
+    padding: 0 12rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* Otro coso */
+/* SCROLLBAR */
+/* width */
+.table-responsive::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.table-responsive::-webkit-scrollbar-track {
+  background: #d2d2d2;
+  border-radius: 1px;
+}
+
+/* Handle */
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #808080; 
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  /* box-shadow: #404040 0px 0px 8px 2px; */
+  border-radius: 50px;
+  /* animation: ani-scroll 5s; */
+} 
+
+/* ANIMACIONES CUANDO NO HAY NADA DE NADA */
+.favo-nada {
+  font-size: 20px;
+  /* padding: 8rem 0 2rem; */
+}
+
+#cora-cora {
+  position: relative;
+  top: -4.4rem;
+  left: 11.55rem;
+  z-index: 300;
+  transform: rotate(-12deg);
+  animation: ani-cora-cora 1.6s infinite;
+}
+
+#coro-coro {
+  position: relative;
+  top: -4.4rem;
+  left: 12.8rem;
+  z-index: 300;
+  color: var(--rosa);
+  transform: rotate(-12deg);
+  animation: ani-cora-cora 1.6s infinite;
+}
+
+@keyframes ani-cora-cora {
+  0% {transform: scale(1) rotate(-12deg)}
+  50% {transform: scale(1.1) rotate(-12deg)}
+  100% {transform: scale(1) rotate(-12deg)}
+}
+
+#pinguino {
+  position: relative;
+  left: -1rem;
+}
+
+#logo-caja {
+  position: relative;
+  top: -3.2rem;
+  left: 7.6rem;
+  z-index: 300;
+  opacity: 0.9;
+}
+
+#logo-caja:hover {
+  opacity: 1;
+}
+
+#gato-caja {
+  position: relative;
+  left: -3rem;
+}

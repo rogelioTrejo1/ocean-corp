@@ -1,0 +1,205 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+
+/* GENERAL */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-family: "EB Garamond", serif;
+  color: var(--negro-suave);
+  height: 100%;
+  overflow: auto;
+  background-color: #f6f6f6;
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+}
+
+/* Colorcitos */
+:root {
+  --azul-rey: #001233;
+  --azul-bajito: #4d94ff;
+  --amarillo-como-chiflas: #ffd24d;
+  --rosa: #ff66a3;
+  --aquamarina: #00e699;
+  --naranja: #ff8566;
+  --negro-suave: #404040;
+}
+
+.alinea-centro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.center-x {
+  position: relative;
+  left: -50%;
+  transform: translateX(50%);
+}
+
+.center-y {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.t-t {
+  color: transparent;
+}
+
+.t-blanco {
+  color: #f2f2f2;
+}
+
+.t-negro {
+  color: var(--negro-suave);
+}
+
+.sin-fondo {
+  background-color: transparent;
+}
+
+
+.fondo-azu-rey {
+  background-color: var(--azul-rey);
+}
+
+.fondo-azu {
+  background-color: var(--azul-bajito);
+}
+
+.fondo-ama {
+  background-color: var(--amarillo-como-chiflas);
+}
+
+.fondo-aqu {
+  background-color: var(--aquamarina);
+}
+
+.fondo-nar {
+  background-color: var(--naranja);
+}
+
+.fondo-ros {
+  background-color: var(--rosa);
+}
+
+.btn-ocean-blanco {
+  color: #404040;
+  background-color: #fff;
+  height: 40px;
+  width: 120px;
+  border: #d2d2d2 1px solid;
+  border-radius: 3px;
+}
+
+.btn-ocean-blanco:hover {
+  background-color: #f6f6f6;
+}
+
+.btn-ocean-claro {
+  background-color: #eee;
+  height: 40px;
+  width: 120px;
+  border: #808080 1px solid;
+  border-radius: 3px;
+}
+
+.btn-ocean-claro:hover {
+  background-color: #e2e2e2;
+}
+
+.btn-ocean-azul {
+  background-color: var(--azul-bajito);
+  height: 40px;
+  min-width: 120px;
+  width: auto;
+  padding: 5px 10px;
+  border: #2560cf 1px solid;
+  border-radius: 3px;
+}
+
+.btn-ocean-azul:hover {
+  background-color: #3f89f8;
+}
+
+.btn-ocean-amarillo {
+  background-color: var(--amarillo-como-chiflas);
+  height: 40px;
+  min-width: 120px;
+  width: auto;
+  margin: 0px 1rem;
+  padding: 5px 10px;
+  border: #ecbe3e 1px solid;
+  border-radius: 3px;
+}
+
+.btn-ocean-amarillo:hover {
+  background-color: #f5c94f;
+}
+
+.btn-ocean-ligero {
+  color: #404040;
+  background-color: transparent;
+  min-height: 35px;
+  height: auto;
+  /* min-width: 80px; */
+  width: auto;
+  padding: 0 1rem;
+  border: transparent 1px solid;
+  border-radius: 3px;
+}
+
+.btn-ocean-ligero:hover {
+  border: #b2b2b2 1px solid;
+}
+
+.btn-redondo {
+  border-radius: 80px;
+}
+
+/* Scroll */
+body::-webkit-scrollbar-track-piece {
+  border-radius: 2.5px;
+}
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--azul-rey);
+  border-radius: 1px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--azul-bajito),
+    var(--aquamarina),
+    var(--amarillo-como-chiflas),
+    var(--naranja),
+    var(--rosa)
+  );
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  /* box-shadow: #404040 0px 0px 8px 2px; */
+  border-radius: 50px;
+  /* animation: ani-scroll 5s; */
+}

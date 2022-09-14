@@ -1,0 +1,32 @@
+<section class="crear-cuenta">
+    <div class="cuenta">
+        <h2 class="text-center">Regístrate</h2>
+        <form method="POST" action="/Registro">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tu nombre" name="Nombre" required>
+            </div>
+            <div class="form-row form-group">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Tu apellido paterno" name="Paterno" required>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Tu apellido materno" name="Materno" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tu nombre de usuario" name="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contraseña" name="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Confirma la contraseña" name="Password1" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-ocean-azul btn-block">Crear cuenta Ocean</button>
+            </div>
+        </form>
+        <hr>
+        ¿Ya tienes una cuenta? <a href="/Login">Inicia sesión</a>
+    </div>
+</section>

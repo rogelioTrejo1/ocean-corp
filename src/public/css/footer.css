@@ -1,0 +1,90 @@
+/* FOOTER */
+footer {
+    background-color: #e5e5e5;
+    border-top: #bbb 1px solid;
+    height: auto;
+    padding: 15px 0 0;
+  }
+  
+  footer a:hover {
+    text-decoration: none;
+  }
+  
+  .logo-footer {
+    width: 200px;
+  }
+  
+  .social {
+    font-size: 26px;
+    color: #606060;
+    width: 50px;
+    height: 50px;
+    /* padding: 5px; */
+    border: #606060 1px solid;
+    border-radius: 50px;
+    margin: 0px 8px;
+    transition: all linear 0.2s;
+  }
+  
+  .f:hover {
+    background-color: var(--azul-rey);
+    color: #fff;
+    transform: translate(0px, -10px);
+    transition: all linear 0.2s;
+  }
+  
+  .t:hover {
+    background-color: var(--azul-bajito);
+    color: #fff;
+    transform: translate(0px, -10px);
+    transition: all linear 0.2s;
+  }
+  
+  .i:hover {
+    background-color: var(--amarillo-como-chiflas);
+    color: #fff;
+    transform: translate(0px, -10px);
+    transition: all linear 0.2s;
+  }
+  
+  .p:hover {
+    background-color: var(--rosa);
+    color: #fff;
+    transform: translate(0px, -10px);
+    transition: all linear 0.2s;
+  }
+  
+  .m:hover {
+    background-color: var(--naranja);
+    color: #fff;
+    transform: translate(0px, -10px);
+    transition: all linear 0.2s;
+  }
+  
+  .dire-dire {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .eslogan {
+    text-align: center;
+    color: #eee;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 2%;
+    border-top: #808080 1px solid;
+    margin-top: 15px;
+    background-color: #606060;
+  }
+
+   /*MEDIA QUERYS */
+@media (max-width: 767px) {
+    .social {
+        margin: 20px 5px;
+      }
+    
+      .dire-dire {
+        text-align: center;
+      }
+}

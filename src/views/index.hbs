@@ -1,0 +1,112 @@
+{{!-- Carrusel de publicidad --}}
+<section class="row carusel">
+    <div id="carrusel-publicidad" class="carousel slide carusel-per-se" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carrusel-publicidad" data-slide-to="0" class="active"></li>
+            <li data-target="#carrusel-publicidad" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="/image/carrusel/diseño gorrasOC.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="/image/carrusel/diseño playerasOC.jpg" alt="Second slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carrusel-publicidad" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carrusel-publicidad" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+{{!-- Productos --}}
+<section class="productos-inicio">
+    <h2>Productos y Servicios</h2>
+    <div class="">
+        <div class="producto-icono ros alinea-centro cami">
+            <i class="fas fa-tshirt cami" id="cami"></i>
+            <span class="t-t cami" id="cami-l">Camisetas</span>
+        </div>
+        <div class="producto-icono ama alinea-centro taza">
+            <i class="fas fa-mug-hot taza" id="taza"></i>
+                <span class="t-t taza" id="taza-l">Tazas</span>
+        </div>
+        <div class="producto-icono azu alinea-centro gorro">
+            <i class="fas fa-hat-wizard gorro" id="gorro"></i>
+            <span class="t-t gorro" id="gorro-l">Gorros</span>
+        </div>
+        <div class="producto-icono ver alinea-centro almo">
+            <i class="fas fa-bed almo" id="almo"></i>
+            <span class="t-t almo" id="almo-l">Almohadas</span>
+        </div>
+        <div class="producto-icono nar alinea-centro agen">
+            <i class="fas fa-book-open agen" id="agen"></i>
+            <span class="t-t agen" id="agen-l">Agendas</span>
+        </div>
+    </div>
+    <a class="ver" href="/Productos">ver catálogo completo</a>
+    <div class="envia-diseños">
+        <h3>Imprime tus documentos</h3>
+        <p>Podemos imprimir tu documento y mandartelo a tu casa; tan solo sube el archivo y especifica los detalles.</p>
+        <a href="/Servicios"><button class="btn-ocean-claro mt-4">Ir a servicios</button></a>
+    </div>
+</section>
+
+{{!-- Encuéntranos --}}
+<section class="row encuentranos alinea-centro">
+    <div class="frase-ocean">
+        <h2>Imprenta Ocean</h2>
+        <h3><i>No hay límites para tus ideas.</i></h3>
+    </div>
+    <div>
+        {{!-- Aquí debe ir el símbolito de maps (no hay nada porque son la 1:26 de la mañana) --}}
+    </div>
+</section>
+
+{{!-- Sobre nosotros --}}
+<section class="nosotros-inicio">
+    <h2>Sobre <i>nosotros</i></h2>
+    <div class="row tarjeta-nosotros">
+        <div class="col-12 col-md-3 bolas-nosotros">
+            <button class="nosotros-icono azu alinea-centro" onclick="cambiaTextoNosotros('objetivo')">
+                <i class="fas fa-chart-line"></i>
+            </button>
+            <button class="nosotros-icono ama alinea-centro" onclick="cambiaTextoNosotros('vision')">
+                <i class="far fa-eye"></i>
+            </button>
+            <button class="nosotros-icono ros alinea-centro" onclick="cambiaTextoNosotros('mision')">
+                <i class="fas fa-bullseye"></i>
+            </button>
+        </div>
+        <div class="col-12 col-md-9">
+            <h3 id="">Imprenta</h3>
+            <p id="no">Ocean Corp es una empresa encargada de comercializar y distribuir, de manera online y con una
+                tienda física,
+                productos propios de una imprenta permitiendo al cliente elegir los diseños que serán plasmados en los
+                diferentes productos que se encuentran en el catálogo, o si lo prefiere, crearlos, esto con el fin de
+                adaptarse a la necesidad de los clientes, facilitar la compra y distribución de los productos.</p>
+            <h4>Nuestra <i id="titulo-nosotros"></i></h4>
+            <p id="texto-nosotros"></p>
+        </div>
+    </div>
+</section>
+
+{{!-- Invitación para registrarse en el sitio --}}
+<section class="unete">
+    <h2>¡Únete!</h2>
+    <h3>(Y evítanos tanto papeleo)</h3>
+    <br>
+    <h4 class="azu">Ten acceso al catálogo de producto de nuestra tienda en línea.</h4>
+    <h4 class="nar">Puedes solicitar todos los servicios de impresión.</h4>
+    <h4 class="ros">Recibe tus pedidos en tu casa.</h4>
+    <br>
+    <a href="/Registro"><button class="btn-ocean-claro">Unirse</button></a>
+</section>
+
+{{!-- JavaScript --}}
+<script src="{{host}}/js/index.js"></script>
