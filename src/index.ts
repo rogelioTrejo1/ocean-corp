@@ -1,25 +1,27 @@
-// Instancias
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const exphbs = require('express-handlebars');
-const cors = require('cors');
-const session = require('express-session');
-const MySQLStore = require('express-mysql-session');
-const passport = require('passport');
-const flash = require('connect-flash');
-const multer = require('multer');
+// Dependencias
+import express from "express";
+import path from "path";
+import morgan from "morgan";
+import cors from "cors";
+import session from "express-session";
+import mysqlStore from "express-mysql-session";
+import passport from "passport";
+import flash from "connect-flash";
+import multer from "multer";
+import { engine } from "express-handlebars";
 
-//Inicilizaciones
-const { keys } = require('./scripts/conexiones');
+import { KEYS } from "./config/keys";
+
+// Inicilizaciones
 const app = express();
+mysqlStore(session)
 require('./scripts/passport');
 
-//configuracion
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, '/views'));
+// Configuración
+app.set('port', process.env['PORT'] || 3000);
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
-app.engine('.hbs', exphbs({
+app.engine('.hbs', engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
@@ -32,28 +34,29 @@ app.use(morgan('dev'));
 app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(session({
     secret: 'Ocen-Corp/MySQL',
     resave: false,
     saveUninitialized: false,
-    // store: new MySQLStore(keys)
+    store: new MySQLStore(keys)
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '/public/image/uploads'),
-    filename: (req, file, cb) => {
+    filename: (_, file, cb) => {
         cb(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
 app.use(multer({ storage }).single('perfil'));
 
 //Variables globales
-app.use((req, res, next) => {
-    app.locals.error = req.flash('Error');
-    app.locals.message = req.flash('Messages');
-    app.locals.host = "";
-    app.locals.user = req.user;
+app.use((req, _, next) => {
+    app.locals['error'] = req.flash('Error');
+    app.locals['message'] = req.flash('Messages');
+    app.locals['host'] = "";
+    app.locals['user'] = req.user;
     next();
 });
 
