@@ -1,21 +1,18 @@
 // Dependencias
-import express from "express";
-import path from "path";
-import morgan from "morgan";
-import cors from "cors";
-import session from "express-session";
-import mysqlStore from "express-mysql-session";
-import passport from "passport";
-import flash from "connect-flash";
-import multer from "multer";
-import { engine } from "express-handlebars";
-
-import { KEYS } from "./config/keys";
+const express = require('express');
+const path = require('path');
+const morgan = require('morgan');
+const cors = require('cors');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+const passport = require('passport');
+const flash = require('connect-flash');
+const multer = require('multer');
+const { engine } = require('express-handlebars');
 
 // Inicilizaciones
 const app = express();
-mysqlStore(session)
-require('./scripts/passport');
+require("./scripts/passport");
 
 // Configuración
 app.set('port', process.env['PORT'] || 3000);
@@ -34,14 +31,20 @@ app.use(morgan('dev'));
 app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(session({
     secret: 'Ocen-Corp/MySQL',
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(keys)
+    store: new MySQLStore({
+        user: "rogelio",
+        password: "4492316585",
+        database: "ocean-corp",
+        port: 3306
+    })
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '/public/image/uploads'),

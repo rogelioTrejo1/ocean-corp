@@ -1,6 +1,6 @@
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
-const { conn } = require('./conexiones');
+const conn = require('./conexiones');
 //const {descryptPassword,encryptPassword} = require('./helperst');
 
 passport.use('local.login', new localStrategy({
