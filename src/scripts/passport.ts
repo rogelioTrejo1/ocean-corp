@@ -1,6 +1,7 @@
-const passport = require('passport');
-const localStrategy = require('passport-local').Strategy;
-const conn = require('./conexiones');
+import passport from "passport";
+import conn from "./conexiones";
+import { Strategy as localStrategy } from "passport-local";
+
 //const {descryptPassword,encryptPassword} = require('./helperst');
 
 passport.use('local.login', new localStrategy({
@@ -18,12 +19,15 @@ passport.use('local.login', new localStrategy({
             const validacion = Password === user.Contraseña;
 
             if (validacion) {
-                done(null, user, req.flash('Messages', `Bienvenido ${user.Nombre} ${user.Apellido_Paterno} ${user.Apellido_Materno}`));
+                req.flash('Messages', `Bienvenido ${user.Nombre} ${user.Apellido_Paterno} ${user.Apellido_Materno}`)
+                done(null, user);
             } else {
-                done(null, false, req.flash('Error', `Contraseña incorrecta!`));
+                req.flash('Error', `Contraseña incorrecta!`)
+                done(null, false);
             }
         } else {
-            return done(null, false, req.flash('Error', 'El usuario no se encuentra registrado!'));
+            req.flash('Error', 'El usuario no se encuentra registrado!')
+            return done(null, false);
         }
 
     });
@@ -37,7 +41,8 @@ passport.use('local.Registro', new localStrategy({
     const { Nombre, Paterno, Materno, Password1 } = req.body;
 
     if (Password != Password1) {
-        done(null, false, req.flash('Error', 'Las contraseñas insertadas no coinciden. Favor de verificarlas!'));
+        req.flash('Error', 'Las contraseñas insertadas no coinciden. Favor de verificarlas!')
+        done(null, false);
     } else {
         const sqlSelect = `SELECT * FROM Clientes WHERE Nombre_Usuario = ${conn.escape(Username)};`;
         conn.query(sqlSelect, async (error, result) => {
@@ -45,7 +50,7 @@ passport.use('local.Registro', new localStrategy({
 
             if (result.length === 0) {
                 //const newPassword = await encryptPassword(Password);
-                const newUser = { Nombre, Paterno, Materno, Username, Password };
+                const newUser: Object = { Nombre, Paterno, Materno, Username, Password };
                 const sql = `INSERT INTO Clientes(Nombre,Apellido_Paterno,Apellido_Materno,Foto_Perfil,Nombre_Usuario,Contraseña) 
                  VALUES(${conn.escape(Nombre)},${conn.escape(Paterno)},${conn.escape(Materno)},${conn.escape('/image/utils/Perfil.jpeg')},${conn.escape(Username)},${conn.escape(Password)});`;
 
@@ -56,7 +61,8 @@ passport.use('local.Registro', new localStrategy({
                     return done(null, newUser);
                 });
             } else {
-                done(null, false, req.flash('Error', 'El usuario que a escogido, no se encualtra disponible. Favor de cambiarlo!'));
+                req.flash('Error', 'El usuario que a escogido, no se encualtra disponible. Favor de cambiarlo!')
+                done(null, false);
             }
         });
     }

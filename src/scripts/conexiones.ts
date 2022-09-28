@@ -1,9 +1,8 @@
 // Dependencias
-const mysql = require('mysql2');
-
+import { createPool } from "mysql2";
 
 // Genero la conexión a la base de datos
-const pool = mysql.createPool({
+const pool = createPool({
     user: "rogelio",
     password: "4492316585",
     database: "ocean-corp",
@@ -40,4 +39,4 @@ pool.getConnection((error, connection) => {
 });
 
 // Exportación del modulo
-module.exports = pool;
+export default pool;

@@ -1,7 +1,8 @@
-const { Router } = require('express');
+import { Router } from "express";
+import request from "request";
+import { isLoggedIn } from "../scripts/helperst";
+
 const router = Router();
-const request = require('request');
-const { isLoggedIn } = require('../scripts/helperst');
 
 //Rutas principales
 router.get('/', (req, res) => {
@@ -42,8 +43,8 @@ router.get('/Productos/:id', (req, res) => {
 });
 
 router.post('/fotoPerfil', isLoggedIn, async (req, res) => {
-    const id = req.user.ID_Cliente;
-    const image = `image/uploads/${req.file.filename}`;
+    const id = req.user.ID_Cliente!;
+    const image = `image/uploads/${req.file?.filename}`;
 
     await request.put({
         url: `http://${req.headers.host}/api/Perfil`,
@@ -56,4 +57,4 @@ router.post('/fotoPerfil', isLoggedIn, async (req, res) => {
     res.redirect('/Cuenta');
 });
 
-module.exports = router;
+export default router;

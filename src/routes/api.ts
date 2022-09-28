@@ -1,6 +1,8 @@
-const router = require('express').Router();
-const conn = require('../scripts/conexiones');
-const { getRandow } = require('../scripts/helperst');
+import { Router } from "express";
+import conn from "../scripts/conexiones";
+import { getRandow } from "../scripts/helperst";
+
+const router = Router();
 
 //Peticiones GET
 router.get('/clientes', async (req, res) => {
@@ -308,4 +310,4 @@ router.delete('/pedidoProducto/:id', (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;
