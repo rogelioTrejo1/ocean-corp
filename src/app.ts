@@ -4,7 +4,6 @@ import { join, resolve } from "path";
 import morgan from "morgan";
 import cors from "cors";
 import session from "express-session";
-import mysqlStore from "express-mysql-session";
 import passport from "passport";
 import flash from "connect-flash";
 import multer from "multer";
@@ -17,11 +16,10 @@ import routesApi from "./routes/api";
 import routes from "./routes/routers";
 import loginRoutes from "./routes/login-register";
 
-import "./scripts/passport";
+import "./middlewares/passport";
 
 // Inicilizaciones
 const app = express();
-const MySQLStore = mysqlStore(session);
 
 // Configuración
 app.set('port', process.env['PORT'] || 3000);
@@ -44,12 +42,6 @@ app.use(session({
     secret: 'Ocen-Corp/MySQL',
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore({
-        user: "rogelio",
-        password: "4492316585",
-        database: "ocean-corp",
-        port: 3306
-    })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -57,10 +49,10 @@ app.use(multer({ storage: perfilFileStorange }).single('perfil'));
 
 //Variables globales
 app.use((req, _, next) => {
-    app.locals['error'] = req.flash('Error');
-    app.locals['message'] = req.flash('Messages');
-    app.locals['host'] = "";
-    app.locals['user'] = req.user;
+    app.locals.error = req.flash('Error');
+    app.locals.message = req.flash('Messages');
+    app.locals.host = "";
+    app.locals.user = req.user;
     next();
 });
 

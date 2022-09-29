@@ -39,4 +39,4 @@ pool.getConnection((error, connection) => {
 });
 
 // Exportación del modulo
-export default pool;
+export default pool.promise();

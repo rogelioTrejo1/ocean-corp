@@ -1,36 +1,31 @@
 import { Router } from "express";
-import conn from "../scripts/conexiones";
+import conn from "../config/database";
 import { getRandow } from "../scripts/helperst";
+
+// Controllers
+import {
+    getClient,
+    getClients,
+    getDataClient
+} from "../controllers/clients.controllers";
 
 const router = Router();
 
 //Peticiones GET
-router.get('/clientes', async (req, res) => {
-    const sql = 'SELECT * FROM Clientes';
-    conn.query(sql, (error, results) => {
+router.get('/clientes', getClients);
+router.get('/clientes/:id', getClient);
+router.get('/clientes/:id/datos', getDataClient);
+
+router.post('/datosClientes', (req, res) => {
+    const { ID_cliente, Calle, No_Interno, No_Externo, Fracci, Codigo_Postal, Telefono, Email, Ayuda } = req.body;
+    const sql = `INSERT INTO Datos_Clientes(ID_Cliente,Calle,No_Interno,No_Externo,Fraccionamiento,Codigo_Postal,Telefono,Email,Ayuda) 
+                VALUES(${conn.escape(ID_cliente)},${conn.escape(Calle)},${conn.escape(No_Interno)},${conn.escape(No_Externo)},${conn.escape(Fracci)},${conn.escape(Codigo_Postal)},${conn.escape(Telefono)},${conn.escape(Email)},${conn.escape(Ayuda)})`;
+    conn.query(sql, error => {
         if (error) throw error;
-        res.json(results);
+        res.json({ text: "Insertado" });
     });
 });
 
-router.get('/clientes/:id', (req, res) => {
-    const ID = req.params.id;
-    const sql = `SELECT * FROM Clientes WHERE ID_Cliente=${conn.escape(ID)}`;
-    conn.query(sql, (error, results) => {
-        if (error) throw error;
-        res.json(results);
-    });
-});
-
-router.get('/datosClientes/:id', (req, res) => {
-    const id = req.params.id
-    const sql = `SELECT * FROM Datos_Clientes WHERE ID_Cliente = ${conn.escape(id)}`;
-
-    conn.query(sql, (error, result) => {
-        if (error) throw error;
-        res.json(result);
-    });
-});
 
 router.get('/productos', (req, res) => {
     const sql = `SELECT * FROM Productos`;
@@ -132,15 +127,7 @@ router.get('/pedidosProductos/:id', (req, res) => {
 });
 
 //Peticiones POST (Insetcion de datos)
-router.post('/datosClientes', (req, res) => {
-    const { ID_cliente, Calle, No_Interno, No_Externo, Fracci, Codigo_Postal, Telefono, Email, Ayuda } = req.body;
-    const sql = `INSERT INTO Datos_Clientes(ID_Cliente,Calle,No_Interno,No_Externo,Fraccionamiento,Codigo_Postal,Telefono,Email,Ayuda) 
-                VALUES(${conn.escape(ID_cliente)},${conn.escape(Calle)},${conn.escape(No_Interno)},${conn.escape(No_Externo)},${conn.escape(Fracci)},${conn.escape(Codigo_Postal)},${conn.escape(Telefono)},${conn.escape(Email)},${conn.escape(Ayuda)})`;
-    conn.query(sql, error => {
-        if (error) throw error;
-        res.json({ text: "Insertado" });
-    });
-});
+
 
 router.post('/pedido', (req, res) => {
     const { Id } = req.body;

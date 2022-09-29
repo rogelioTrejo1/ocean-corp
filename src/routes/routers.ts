@@ -43,7 +43,7 @@ router.get('/Productos/:id', (req, res) => {
 });
 
 router.post('/fotoPerfil', isLoggedIn, async (req, res) => {
-    const id = req.user.ID_Cliente!;
+    const id = req.user?.ID_Cliente!;
     const image = `image/uploads/${req.file?.filename}`;
 
     await request.put({

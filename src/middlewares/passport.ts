@@ -1,5 +1,5 @@
 import passport from "passport";
-import conn from "./conexiones";
+import conn from "../config/database";
 import { Strategy as localStrategy } from "passport-local";
 
 //const {descryptPassword,encryptPassword} = require('./helperst');
