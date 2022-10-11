@@ -1,12 +1,14 @@
 // Dependencias
 import { createPool } from "mysql2";
+import KEYS from "./keys";
 
 // Genero la conexión a la base de datos
 const pool = createPool({
-    user: "rogelio",
-    password: "4492316585",
-    database: "ocean-corp",
-    port: 3306
+    host: KEYS.DB_HOST,
+    user: KEYS.DB_USER,
+    password: KEYS.DB_PASS,
+    database: KEYS.DB_DATABASE,
+    port: KEYS.DB_PORT
 });
 
 pool.getConnection((error, connection) => {

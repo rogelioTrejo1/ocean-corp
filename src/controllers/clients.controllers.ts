@@ -1,9 +1,11 @@
 // Dependencias
 import { Request, Response } from "express";
 import { StatusCodes, ReasonPhrases } from "http-status-codes";
-import { RowDataPacket } from "mysql2";
+import { OkPacket } from "mysql2";
+import { Client_DB, Client_Data_DB } from "../@types/types";
 import KEYS from "../config/keys";
 import conn from "../config/database";
+
 
 /**
  * 
@@ -15,7 +17,7 @@ export async function getClients(req: Request, res: Response): Promise<Response>
     try {
         // Creo y ejecuto la sentencia SQL
         const sql = 'SELECT * FROM Clientes';
-        const [results] = await conn.query<Client[]>(sql);
+        const [results] = await conn.query<Client_DB[]>(sql);
 
         // Mando la respuesta al cliente
         return res.status(StatusCodes.OK)
@@ -28,6 +30,8 @@ export async function getClients(req: Request, res: Response): Promise<Response>
     } catch (e) {
         if (KEYS.NODE_ENV === "dev")
             console.log(e);
+        else
+            req.error = e as Error;
 
         // Respuesta por defecto
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
@@ -53,7 +57,7 @@ export async function getClient(req: Request, res: Response): Promise<Response> 
 
         // Creo y ejecuto la sentencia SQL
         const sql = 'SELECT * FROM Clientes WHERE ID_Cliente = ?';
-        const [result] = await conn.query<Client[]>(sql, [id]);
+        const [result] = await conn.query<Client_DB[]>(sql, [id]);
 
         if (result.length === 0)
             return res.status(StatusCodes.NOT_FOUND)
@@ -101,7 +105,7 @@ export async function getDataClient(req: Request, res: Response): Promise<Respon
 
         // Creo y ejecuto la sentencia SQL
         const sqlClient = 'SELECT * FROM Clientes WHERE ID_Cliente = ?';
-        const [result] = await conn.query<Client[]>(sqlClient, [id]);
+        const [result] = await conn.query<Client_DB[]>(sqlClient, [id]);
 
         if (result.length === 0)
             return res.status(StatusCodes.NOT_FOUND)
@@ -113,7 +117,7 @@ export async function getDataClient(req: Request, res: Response): Promise<Respon
 
         // Busco la información del cliente
         const sql = 'SELECT * FROM Datos_Clientes WHERE ID_Cliente = ?';
-        const [resultData] = await conn.query<Client_Data[]>(sql, [id]);
+        const [resultData] = await conn.query<Client_Data_DB[]>(sql, [id]);
 
         // Limpio los datos inesesarios del cliente
         const { ID_Cliente, ID_Registro, ...clientData } = resultData[0];
@@ -148,32 +152,44 @@ export async function getDataClient(req: Request, res: Response): Promise<Respon
     }
 }
 
-// Types of data
 /**
  * 
+ * @param req 
+ * @param res 
+ * @returns 
  */
-type Client = RowDataPacket & {
-    ID_Cliente: number;
-    Nombre: string;
-    Apellido_Paterno: string;
-    Apellido_Materno: string;
-    Foto_Perfil: string;
-    Nombre_Usuario: string;
-    Contraseña: string
-}
+export async function postDataClient(req: Request, res: Response): Promise<Response> {
+    try {
+        // Optengo el cuerpo de la peticion 
+        const newDataClient = req.body;
 
-/**
- * 
- */
-type Client_Data = RowDataPacket & {
-    ID_Registro: number;
-    ID_Cliente: number
-    Calle: string;
-    No_Interno: number;
-    No_Externo: number;
-    Fraccionamiento: string;
-    Codigo_Postal: number;
-    Telefono: string;
-    Email: string;
-    Ayuda: string;
+        // Creo y ejecuto la sentencia SQL
+        const sql = 'INSERT INTO Datos_Clientes SET ?';
+        const [result] = await conn.execute<OkPacket>(sql, [newDataClient]);
+
+        // Mando la respuesta al cliente
+        return res.status(StatusCodes.CREATED)
+            .json({
+                status: StatusCodes.CREATED,
+                message: ReasonPhrases.CREATED,
+                resp: true,
+                body: result
+            });
+    } catch (e) {
+        // Implmentacion de logger
+        if (KEYS.NODE_ENV === "dev")
+            console.log(e);
+        else {
+            // Implmentacion del logger
+        }
+
+        // Respuesta por defecto
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+            .json({
+                status: StatusCodes.INTERNAL_SERVER_ERROR,
+                resp: false,
+                message: ReasonPhrases.INTERNAL_SERVER_ERROR,
+                error: e
+            });
+    }
 }

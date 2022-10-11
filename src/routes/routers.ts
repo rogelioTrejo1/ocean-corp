@@ -1,5 +1,5 @@
 import { Router } from "express";
-import request from "request";
+import fetch from "node-fetch";
 import { isLoggedIn } from "../scripts/helperst";
 
 const router = Router();
@@ -30,30 +30,29 @@ router.get('/Pedidos', isLoggedIn, (req, res) => {
 });
 
 //Rutas compuestas
-router.get('/Productos/:id', (req, res) => {
+router.get('/Productos/:id', async (req, res) => {
     const id = req.params.id;
-    request.get(`http://${req.headers.host}/api/productos/${id}`, (error, result) => {
-        if (error) throw error;
-        const resp = JSON.parse(result.body);
-        res.render('Producto', {
-            body: resp[0],
-            user: req.user
-        });
+    const resp = await fetch(`http://${req.headers.host}/api/productos/${id});`);
+    const data = await resp.json();
+
+    res.render('Producto', {
+        body: data,
+        user: req.user
     });
 });
 
 router.post('/fotoPerfil', isLoggedIn, async (req, res) => {
-    const id = req.user?.ID_Cliente!;
+    const id = req.user?.ID_Cliente;
     const image = `image/uploads/${req.file?.filename}`;
 
-    await request.put({
-        url: `http://${req.headers.host}/api/Perfil`,
+    await fetch(`http://${req.headers.host}/api/Perfil`, {
         headers: {
             'Content-type': 'application/json'
         },
         method: 'PUT',
-        body: JSON.stringify({ id, image }),
+        body: JSON.stringify({ id, image })
     });
+
     res.redirect('/Cuenta');
 });
 

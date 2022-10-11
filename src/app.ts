@@ -1,5 +1,5 @@
 // Dependecias
-import express, { static as staticFiles } from "express";
+import express, { static as staticFiles, Application, urlencoded, json } from "express";
 import { join, resolve } from "path";
 import morgan from "morgan";
 import cors from "cors";
@@ -8,36 +8,53 @@ import passport from "passport";
 import flash from "connect-flash";
 import multer from "multer";
 import { engine } from "express-handlebars";
+import { accessLogger, errorLogger } from "./middlewares/logger";
 
+import KEYS from "./config/keys";
+
+// Middlewares
 import { perfilFileStorange } from "./middlewares/multer";
+import "./middlewares/passport";
 
 // Rutas
 import routesApi from "./routes/api";
 import routes from "./routes/routers";
 import loginRoutes from "./routes/login-register";
 
-import "./middlewares/passport";
-
 // Inicilizaciones
-const app = express();
+const app: Application = express();
 
 // Configuración
-app.set('port', process.env['PORT'] || 3000);
+app.set('port', KEYS.PORT);
 app.set('views', resolve(__dirname, '..', 'views'));
+app.set('rootDir', resolve(__dirname, '..'))
 app.set('view engine', '.hbs');
 app.engine('.hbs', engine({
     defaultLayout: 'main',
     layoutsDir: join(app.get('views'), 'layouts'),
     partialsDir: join(app.get('views'), 'partials'),
-    extname: '.hbs'
 }));
+// morgan.token("error", (req, res) => `${req.} - ${}`);
+
 
 //middelware
+if (KEYS.NODE_ENV !== "dev")
+    app.use(morgan('dev'));
+else {
+    app.use(morgan('combined', {
+        skip: (req, res) => res.statusCode < 400,
+        stream: errorLogger
+    }));
+
+    app.use(morgan('dev', {
+        stream: accessLogger
+    }));
+}
+
 app.use(cors());
-app.use(morgan('dev'));
 app.use(flash());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(json());
+app.use(urlencoded({ extended: false }));
 app.use(session({
     secret: 'Ocen-Corp/MySQL',
     resave: false,

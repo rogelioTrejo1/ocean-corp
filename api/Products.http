@@ -1,0 +1,5 @@
+### Variables de ejecución
+@host = http://localhost:3000/api
+
+### Perición GET
+GET {{host}}/clientes

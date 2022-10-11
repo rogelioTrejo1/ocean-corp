@@ -4,4 +4,11 @@ node_modules
 # VS Code
 .vscode
 
+# Enviroments
+.env 
+
+# Logger to the app
+logs   
+
+# Build App
 dist
